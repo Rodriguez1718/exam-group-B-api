@@ -1,6 +1,5 @@
 const express = require('express');  
 const router = express.Router();  
-
 // Initial exams data  
 const exams = [  
   { id: 1, name: "Math Exam 1", date: "2023-10-01" },  
