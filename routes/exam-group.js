@@ -15,6 +15,7 @@ const exams = [
 res.json(exams);
 });
 
+//POST / exams endpoint
 router.post('/', (req, res) => {  
     const newExam = req.body;  
     exams.push(newExam);  
