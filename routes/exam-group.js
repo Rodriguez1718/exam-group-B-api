@@ -15,5 +15,12 @@ const exams = [
 res.json(exams);
 });
 
+router.post('/', (req, res) => {  
+    const newExam = req.body;  
+    exams.push(newExam);  
+    res.status(201).send(newExam); // 201 Created status code  
+});  
+
+
 
 module.exports = router;  
