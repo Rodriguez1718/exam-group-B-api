@@ -31,4 +31,14 @@ router.post('/exams', (req, res) => {
     res.status(201).send(newExam); 
 });  
 
+app.put("/exams/:id", (req, res) => {
+    const newExam = exams.find(e => e.id === parseInt(req.params.id));
+    if (newExam) {
+        newExam.name = req.body.name || newExam.name;
+        newExam.date = req.body.date || newExam.date;
+        res.json(newExam);
+    } else {
+        res.status(404).json({ message : "Exam not found"});
+    }
+});
 module.exports = router;  
