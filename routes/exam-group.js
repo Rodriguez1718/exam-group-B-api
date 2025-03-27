@@ -17,7 +17,8 @@ res.json(exams);
 
 //POST / exams endpoint
 router.post('/', (req, res) => {  
-    const newExam = req.body;  
+    const { name,date } = req.body
+    const newExam = {id: exams.length + 1, name, date}  
     exams.push(newExam);  
     res.status(201).send(newExam); // 201 Created status code  
 });  
