@@ -30,4 +30,19 @@ router.post('/exams', (req, res) => {
     res.status(201).send(newExam); 
 });  
 
-module.exports = router;  
+// PUT /exams/:id endpoint 
+router.put('/exams/:id', (req, res) => {  
+    const examId = parseInt(req.params.id);  
+    const examToUpdate = exams.find(e => e.id === examId);  
+    
+    if (!examToUpdate) {  
+        return res.status(404).json({ message: "Exam not found" });  
+    }  
+
+
+    examToUpdate.name = req.body.name || examToUpdate.name;  
+    examToUpdate.date = req.body.date || examToUpdate.date;  
+
+    res.json(examToUpdate);  
+});  
+module.exports = router;
